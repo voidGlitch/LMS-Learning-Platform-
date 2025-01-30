@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres:17.0
+    hostname: localhost
+    ports:
+    # LOCAL URL FOR THE POSTGRES
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+    # SAVES THE FILES OF THE POSTGRES LOCATION
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
+
+# THIS CODE IS TO CONNECT TO THE POSTGRES IMAGE AND CONNECT US TO THE DATABASE
